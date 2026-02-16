@@ -1,0 +1,16 @@
+# robots.txt for Hanan Irfan Digital Group
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /draft/
+
+# Sitemap location
+Sitemap: https://hidigitalgroup.vercel.app/sitemap.xml
+
+# Crawl delay (be polite)
+Crawl-delay: 10
+
+# Host
+Host: https://hidigitalgroup.vercel.app

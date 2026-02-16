@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions - Hanan Irfan Digital Group</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0b12;
+      color: #f0f0f7;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    
+    /* Header */
+    .site-header {
+      background: #0c0c15;
+      border-bottom: 1px solid #2a2a3a;
+      padding: 25px 0;
+      margin-bottom: 40px;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #b2a5ff, #ff9ec7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span {
+      font-size: 1rem;
+      color: #aaa;
+      margin-left: 12px;
+      -webkit-text-fill-color: #aaa;
+    }
+    .back-home {
+      color: #b2a5ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-home i {
+      margin-right: 8px;
+    }
+
+    /* Page title */
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 30px 0 20px;
+      background: linear-gradient(145deg, #ffffff, #c0b7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .last-updated {
+      color: #b0b0c8;
+      font-size: 1rem;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #2a2a3a;
+    }
+
+    /* Terms content */
+    .terms-content {
+      background: #15151f;
+      border-radius: 40px;
+      padding: 50px;
+      margin: 30px 0 50px;
+      border: 1px solid #2b2b3a;
+    }
+    .terms-section {
+      margin-bottom: 40px;
+    }
+    .terms-section h2 {
+      font-size: 1.8rem;
+      color: #b2a5ff;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .terms-section h2 i {
+      color: #ff9ec7;
+      font-size: 1.6rem;
+    }
+    .terms-section h3 {
+      font-size: 1.3rem;
+      color: #e0e0f0;
+      margin: 25px 0 15px;
+    }
+    .terms-section p {
+      color: #b0b0c8;
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+    }
+    .terms-section ul, .terms-section ol {
+      margin: 15px 0 20px 25px;
+      color: #b0b0c8;
+    }
+    .terms-section li {
+      margin-bottom: 10px;
+    }
+    .terms-section a {
+      color: #b2a5ff;
+      text-decoration: none;
+    }
+    .terms-section a:hover {
+      text-decoration: underline;
+    }
+    .highlight-box {
+      background: #1e1e2a;
+      border-left: 4px solid #6c5dd3;
+      padding: 25px;
+      border-radius: 20px;
+      margin: 25px 0;
+    }
+    .highlight-box p {
+      margin-bottom: 0;
+    }
+    .legal-note {
+      background: #1a1a27;
+      border-radius: 30px;
+      padding: 20px;
+      font-size: 0.95rem;
+      color: #aaa;
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    /* Table of contents */
+    .toc {
+      background: #1a1a27;
+      border-radius: 30px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+    .toc h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #b2a5ff;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .toc-item {
+      color: #b0b0c8;
+      text-decoration: none;
+      padding: 8px 0;
+      transition: 0.3s;
+    }
+    .toc-item:hover {
+      color: #b2a5ff;
+      padding-left: 5px;
+    }
+
+    /* Acceptance banner */
+    .acceptance-banner {
+      background: linear-gradient(145deg, #1b1b2a, #0d0d16);
+      border-radius: 60px;
+      padding: 40px;
+      text-align: center;
+      margin: 40px 0;
+      border: 1px solid #4b4b6a;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 1.1rem;
+      margin: 10px;
+    }
+    .btn-primary {
+      background: #6c5dd3;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #5849b8;
+      transform: translateY(-3px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #6c5dd3;
+      color: white;
+    }
+    .btn-outline:hover {
+      background: #6c5dd3;
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid #2a2a38;
+      padding: 40px 0;
+      margin-top: 60px;
+      text-align: center;
+      color: #888;
+    }
+    .footer-links {
+      margin-top: 15px;
+    }
+    .footer-links a {
+      color: #888;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .footer-links a:hover {
+      color: #b2a5ff;
+    }
+
+    @media (max-width: 900px) {
+      .toc-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .terms-content {
+        padding: 30px;
+      }
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+    <!-- OR for PNG file -->
+    <link rel="icon" type="image/png" href="favicon.ico.png">
+ <!-- CANONICAL TAG - Add this -->
+  <link rel="canonical" href="https://hidigitalgroup.vercel.app/terms.html">
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Hanan Irfan Digital <span>solve & deliver</span></div>
+      <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Terms Content -->
+  <main class="container">
+    <h1 class="page-title">📜 Terms and Conditions</h1>
+    <div class="last-updated">
+      <i class="fas fa-calendar-alt" style="color: #b2a5ff; margin-right: 8px;"></i> Last Updated: February 15, 2026 | Version 2.1
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <h3><i class="fas fa-list-ul"></i> Quick Navigation</h3>
+      <div class="toc-grid">
+        <a href="#acceptance" class="toc-item">1. Acceptance of Terms</a>
+        <a href="#services" class="toc-item">2. Services Description</a>
+        <a href="#eligibility" class="toc-item">3. Eligibility</a>
+        <a href="#quotations" class="toc-item">4. Quotations & Pricing</a>
+        <a href="#payments" class="toc-item">5. Payments</a>
+        <a href="#refund" class="toc-item">6. Refund Policy</a>
+        <a href="#delivery" class="toc-item">7. Delivery & Revisions</a>
+        <a href="#ip" class="toc-item">8. Intellectual Property</a>
+        <a href="#confidentiality" class="toc-item">9. Confidentiality</a>
+        <a href="#liability" class="toc-item">10. Limitation of Liability</a>
+        <a href="#termination" class="toc-item">11. Termination</a>
+        <a href="#governing" class="toc-item">12. Governing Law</a>
+        <a href="#disputes" class="toc-item">13. Dispute Resolution</a>
+        <a href="#changes" class="toc-item">14. Changes to Terms</a>
+        <a href="#contact" class="toc-item">15. Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Terms Content -->
+    <div class="terms-content">
+      
+      <!-- Section 1: Acceptance -->
+      <section id="acceptance" class="terms-section">
+        <h2><i class="fas fa-check-circle"></i> 1. Acceptance of Terms</h2>
+        <p>By accessing or using the services of Hanan Irfan Digital Group ("Company," "we," "us," "our"), you agree to be bound by these Terms and Conditions. If you do not agree to all terms, please do not use our services.</p>
+        <p>These terms apply to all visitors, users, and clients who access or use our website, contact us, or purchase our services. By placing an order or making a payment, you acknowledge that you have read, understood, and agreed to these terms.</p>
+        <div class="highlight-box">
+          <p><i class="fas fa-gavel"></i> <strong>Important:</strong> These terms form a legally binding agreement between you and Hanan Irfan Digital Group.</p>
+        </div>
+      </section>
+
+      <!-- Section 2: Services Description -->
+      <section id="services" class="terms-section">
+        <h2><i class="fas fa-cogs"></i> 2. Services Description</h2>
+        <p>Hanan Irfan Digital Group provides digital services including but not limited to:</p>
+        <ul>
+          <li><strong>Graphic Design:</strong> Logos, branding, posters, social media designs, packaging, thumbnails</li>
+          <li><strong>Web Development:</strong> Websites, e-commerce stores, web applications, maintenance</li>
+          <li><strong>SEO:</strong> Search engine optimization, keyword research, backlinking, analytics</li>
+          <li><strong>Microsoft Office:</strong> Word documents, PowerPoint presentations, Excel spreadsheets</li>
+          <li><strong>Assignments & Presentations:</strong> Academic work, business presentations, reports</li>
+          <li><strong>Video Editing:</strong> Promotional videos, YouTube edits, reels, effects</li>
+          <li><strong>Thumbnail Creation:</strong> YouTube thumbnails, social media covers</li>
+          <li><strong>Image Resizing:</strong> Bulk image editing, cropping, optimization</li>
+          <li><strong>YouTube Content:</strong> Scripting, production, editing, optimization</li>
+          <li><strong>Content Writing:</strong> Blog posts, articles, web copy, product descriptions</li>
+        </ul>
+        <p>We reserve the right to modify, suspend, or discontinue any service without prior notice.</p>
+      </section>
+
+      <!-- Section 3: Eligibility -->
+      <section id="eligibility" class="terms-section">
+        <h2><i class="fas fa-user-check"></i> 3. Eligibility</h2>
+        <p>By using our services, you represent and warrant that:</p>
+        <ul>
+          <li>You are at least 18 years of age or have parental consent</li>
+          <li>You have the legal capacity to enter into binding contracts</li>
+          <li>All information you provide is accurate, current, and complete</li>
+          <li>You will use our services for lawful purposes only</li>
+          <li>You own or have necessary rights to any content/material you provide</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Quotations & Pricing -->
+      <section id="quotations" class="terms-section">
+        <h2><i class="fas fa-file-invoice"></i> 4. Quotations & Pricing</h2>
+        <h3>4.1 Quotations</h3>
+        <p>All quotes provided are valid for 7 days from the date of issue, unless otherwise stated. Quotes are based on the information provided at the time; significant changes to project scope may result in revised pricing.</p>
+        
+        <h3>4.2 Pricing</h3>
+        <p>Prices are listed in Pakistani Rupees (PKR) for local clients and USD for international clients, unless otherwise agreed. Prices are exclusive of applicable taxes (e.g., sales tax, VAT), which will be added where required by law.</p>
+        
+        <h3>4.3 Scope Changes</h3>
+        <p>If the project scope changes significantly after work has begun, we will provide a revised quote. You have the right to accept or decline the new pricing.</p>
+      </section>
+
+      <!-- Section 5: Payments -->
+      <section id="payments" class="terms-section">
+        <h2><i class="fas fa-credit-card"></i> 5. Payment Terms</h2>
+        <h3>5.1 Payment Schedule</h3>
+        <ul>
+          <li><strong>Small projects</strong> (under ₨ 10,000): 100% upfront</li>
+          <li><strong>Medium projects</strong> (₨ 10,000 - ₨ 50,000): 50% advance, 50% on delivery</li>
+          <li><strong>Large projects</strong> (over ₨ 50,000): 30-50% advance, balance in milestones</li>
+          <li><strong>Monthly retainers</strong> (SEO, maintenance): 100% at start of each month</li>
+        </ul>
+
+        <h3>5.2 Payment Methods</h3>
+        <p>We accept:</p>
+        <ul>
+          <li><strong>Pakistan:</strong> JazzCash, EasyPaisa, Bank Transfer </li>
+          
+        </ul>
+
+        <h3>5.3 Late Payments</h3>
+        <p>Payments are due within 7 days of invoice date. Late payments may incur a 5% late fee per month and work may be suspended until payment is received.</p>
+      </section>
+
+      <!-- Section 6: Refund Policy -->
+      <section id="refund" class="terms-section">
+        <h2><i class="fas fa-undo-alt"></i> 6. Refund Policy</h2>
+        <h3>6.1 Refund Eligibility</h3>
+        <ul>
+          <li><strong>Before work starts:</strong> Full refund of advance</li>
+          <li><strong>After work starts:</strong> Partial refund based on work completed (deducting time/effort)</li>
+          <li><strong>Completed projects:</strong> No refund, but we offer unlimited revisions until satisfaction</li>
+          <li><strong>Third-party costs:</strong> Domain registrations, hosting, stock assets are non-refundable once purchased</li>
+        </ul>
+
+        <h3>6.2 Refund Process</h3>
+        <p>Refund requests must be submitted in writing via email. We process refunds within 7-10 business days via the original payment method.</p>
+
+        <div class="highlight-box">
+          <p><i class="fas fa-heart"></i> <strong>Our Commitment:</strong> If you're not satisfied with the work, we'll work with you to make it right. Refunds are available as described above.</p>
+        </div>
+      </section>
+
+      <!-- Section 7: Delivery & Revisions -->
+      <section id="delivery" class="terms-section">
+        <h2><i class="fas fa-clock"></i> 7. Delivery & Revisions</h2>
+        <h3>7.1 Delivery Timeline</h3>
+        <p>Estimated delivery times are provided with each quote. While we strive to meet all deadlines, delays may occur due to unforeseen circumstances. We will notify you of any significant delays.</p>
+
+        <h3>7.2 Revisions</h3>
+        <ul>
+          <li><strong>Graphic design:</strong> 2 rounds of revisions included, additional at ₨ 500/round</li>
+          <li><strong>Web development:</strong> 2 rounds of revisions included (content changes), structural changes may be quoted separately</li>
+          <li><strong>Video editing:</strong> 2 rounds included</li>
+          <li><strong>Content writing:</strong> 1 round of edits included</li>
+        </ul>
+        <p>Revisions requested after 14 days of delivery may incur charges.</p>
+
+        <h3>7.3 Client Responsibility</h3>
+        <p>You are responsible for providing timely feedback and required materials (text, images, branding guidelines). Delays in client responses may extend delivery timelines.</p>
+      </section>
+
+      <!-- Section 8: Intellectual Property -->
+      <section id="ip" class="terms-section">
+        <h2><i class="fas fa-copyright"></i> 8. Intellectual Property Rights</h2>
+        <h3>8.1 Ownership</h3>
+        <ul>
+          <li><strong>Before full payment:</strong> We retain all rights to work created. You may not use or publish any work until final payment is received.</li>
+          <li><strong>After full payment:</strong> Full ownership transfers to you. You receive original source files (where applicable).</li>
+        </ul>
+
+        <h3>8.2 Portfolio Rights</h3>
+        <p>We reserve the right to display any work in our portfolio, unless a non-disclosure agreement (NDA) is signed before work begins.</p>
+
+        <h3>8.3 Third-Party Assets</h3>
+        <p>If your project includes third-party assets (stock photos, fonts, plugins), you may need to purchase appropriate licenses. We will inform you of any such requirements.</p>
+      </section>
+
+      <!-- Section 9: Confidentiality -->
+      <section id="confidentiality" class="terms-section">
+        <h2><i class="fas fa-lock"></i> 9. Confidentiality</h2>
+        <p>We treat all client information as confidential. We will not disclose your project details, business information, or personal data to third parties without your consent, except as required by law.</p>
+        <p>NDAs can be signed upon request before sharing sensitive project information.</p>
+      </section>
+
+      <!-- Section 10: Limitation of Liability -->
+      <section id="liability" class="terms-section">
+        <h2><i class="fas fa-exclamation-triangle"></i> 10. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, Hanan Irfan Digital Group shall not be liable for:</p>
+        <ul>
+          <li>Indirect, incidental, or consequential damages</li>
+          <li>Loss of profits, data, or business opportunities</li>
+          <li>Third-party claims against you</li>
+        </ul>
+        <p>Our total liability for any claim shall not exceed the amount paid by you for the specific project giving rise to the claim.</p>
+      </section>
+
+      <!-- Section 11: Termination -->
+      <section id="termination" class="terms-section">
+        <h2><i class="fas fa-stop-circle"></i> 11. Termination</h2>
+        <p>Either party may terminate a project with written notice. Upon termination:</p>
+        <ul>
+          <li>You pay for work completed up to termination date</li>
+          <li>We deliver all completed work upon full payment</li>
+          <li>Unused advance is refunded if work hasn't started</li>
+        </ul>
+      </section>
+
+      <!-- Section 12: Governing Law -->
+      <section id="governing" class="terms-section">
+        <h2><i class="fas fa-gavel"></i> 12. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the Islamic Republic of Pakistan. Any legal action shall be brought in the courts of Rahim Yar Khan, Pakistan.</p>
+        
+      </section>
+
+      <!-- Section 13: Dispute Resolution -->
+      <section id="disputes" class="terms-section">
+        <h2><i class="fas fa-handshake"></i> 13. Dispute Resolution</h2>
+        <p>Before initiating any legal action, both parties agree to attempt informal resolution:</p>
+        <ol>
+          <li>Discuss the issue directly (email/phone)</li>
+          <li>If unresolved, mediation through a mutually agreed third party</li>
+          <li>Finally, arbitration or court proceedings as per governing law</li>
+        </ol>
+      </section>
+
+      <!-- Section 14: Changes to Terms -->
+      <section id="changes" class="terms-section">
+        <h2><i class="fas fa-edit"></i> 14. Changes to Terms</h2>
+        <p>We may update these Terms periodically. The "Last Updated" date indicates when changes were made. Continued use of our services after changes constitutes acceptance of new terms.</p>
+      </section>
+
+      <!-- Section 15: Contact Us -->
+      <section id="contact" class="terms-section">
+        <h2><i class="fas fa-headset"></i> 15. Contact Information</h2>
+        <p>For questions about these Terms or to report violations:</p>
+        <ul style="list-style: none; margin-left: 0;">
+          <li><i class="fas fa-envelope" style="color: #b2a5ff; width: 30px;"></i> hananirfan91@gmail.com</li>
+          <li><i class="fas fa-phone-alt" style="color: #b2a5ff; width: 30px;"></i> +92 310 6359235</li>
+          <li><i class="fab fa-whatsapp" style="color: #b2a5ff; width: 30px;"></i> +92 310 6359235 (WhatsApp)</li>
+          <li><i class="fas fa-map-marker-alt" style="color: #b2a5ff; width: 30px;"></i> Rahim Yar Khan, Punjab, Pakistan</li>
+        </ul>
+        <p>Business hours: Monday-Saturday 9am-11pm (PKT)</p>
+      </section>
+    </div>
+
+    <!-- Acceptance Banner -->
+    <div class="acceptance-banner">
+      <h2 style="font-size: 2rem; margin-bottom: 20px;">✅ By using our services, you agree to these Terms</h2>
+      <p style="color: #b0b0c8; margin-bottom: 30px;">If you have any questions, please contact us before proceeding.</p>
+      <a href="index.html" class="btn btn-primary"><i class="fas fa-check"></i> I Accept & Return to Home</a>
+      <a href="contact.html" class="btn btn-outline"><i class="fas fa-question-circle"></i> Questions? Contact Us</a>
+    </div>
+
+    <!-- Legal Note -->
+    <div class="legal-note">
+      <i class="fas fa-balance-scale"></i> These Terms were prepared with legal guidance and are regularly updated to ensure compliance with applicable laws. Last reviewed: February 2026.
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Hanan Irfan Digital Group – We solve & deliver. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="aboutuspge.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="howitworks.html">How It Works</a>
+        <a href="projects.html">Projects</a>
+        
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html" style="color: #b2a5ff;">Terms</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth scroll for anchor links -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({behavior: 'smooth'});
+        }
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hanan Irfan Digital Group",
+  "image": "https://hidigitalgroup.vercel.app/og-image.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Abu Dhabi Road",
+    "addressLocality": "Rahim Yar Khan",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92 310 6359235",
+  "openingHours": "Mo-Sa 09:00-23:00",
+  "sameAs": [
+    "https://facebook.com/HananIrfan001",
+    "https://instagram.com/tearswithhanan/",
+    "https://www.youtube.com/@ancientmystery-0"
+  ]
+}
+</script>
+</body>
+</html>

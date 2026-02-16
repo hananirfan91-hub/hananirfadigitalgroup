@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Hanan Irfan Digital Group | Frequently Asked Questions</title>
+  <!-- Font Awesome 6 -->
+   <meta property="og:title" content="FAQ – Hanan Irfan Digital Group">
+<meta property="og:description" content="Frequently asked questions about our services, pricing, delivery, payments, and process. Find answers to common questions.">
+<meta property="og:url" content="https://hidigitalgroup.vercel.app/faq.html">
+<meta name="twitter:title" content="FAQ – Hanan Irfan Digital Group">
+<meta name="twitter:description" content="Frequently asked questions about our services, pricing, delivery, payments, and process.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0b12;
+      color: #f0f0f7;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    
+    /* Header */
+    .site-header {
+      background: #0c0c15;
+      border-bottom: 1px solid #2a2a3a;
+      padding: 25px 0;
+      margin-bottom: 40px;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #b2a5ff, #ff9ec7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span {
+      font-size: 1rem;
+      color: #aaa;
+      margin-left: 12px;
+      -webkit-text-fill-color: #aaa;
+    }
+    .back-home {
+      color: #b2a5ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-home i {
+      margin-right: 8px;
+    }
+
+    /* Page title */
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 30px 0 20px;
+      background: linear-gradient(145deg, #ffffff, #c0b7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-description {
+      color: #b0b0c8;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+
+    /* Search bar */
+    .faq-search {
+      margin: 40px 0 30px;
+    }
+    .search-container {
+      position: relative;
+      max-width: 600px;
+    }
+    .search-container i {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #b2a5ff;
+      font-size: 1.2rem;
+    }
+    #faqSearch {
+      width: 100%;
+      padding: 18px 20px 18px 50px;
+      background: #15151f;
+      border: 2px solid #2b2b3a;
+      border-radius: 60px;
+      color: white;
+      font-size: 1.1rem;
+      font-family: 'Inter', sans-serif;
+      transition: 0.3s;
+    }
+    #faqSearch:focus {
+      outline: none;
+      border-color: #6c5dd3;
+      box-shadow: 0 0 0 4px rgba(108, 93, 211, 0.2);
+    }
+    .search-results-count {
+      margin-top: 10px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Category tabs */
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 40px 0 30px;
+    }
+    .category-tab {
+      padding: 12px 28px;
+      background: #15151f;
+      border: 1px solid #2b2b3a;
+      border-radius: 40px;
+      color: #ddd;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+    .category-tab:hover {
+      background: #2b2b3a;
+      color: white;
+    }
+    .category-tab.active {
+      background: #6c5dd3;
+      border-color: #b2a5ff;
+      color: white;
+    }
+
+    /* FAQ Grid */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin: 30px 0 50px;
+    }
+    .faq-item {
+      background: #15151f;
+      border-radius: 30px;
+      padding: 30px;
+      border: 1px solid #2b2b3a;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .faq-item:hover {
+      border-color: #6c5dd3;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+    .faq-item.hidden {
+      display: none;
+    }
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .faq-question h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #b2a5ff;
+      margin: 0;
+      line-height: 1.4;
+    }
+    .faq-question i {
+      color: #6c5dd3;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      color: #b0b0c8;
+      margin-top: 0;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      margin-top: 20px;
+    }
+    .faq-answer p {
+      margin-bottom: 10px;
+    }
+    .faq-answer ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    .faq-answer li {
+      margin: 8px 0;
+    }
+
+    /* Category badges */
+    .faq-category-badge {
+      display: inline-block;
+      background: #2b2b3a;
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #b2a5ff;
+      margin-top: 15px;
+    }
+
+    /* Still have questions section */
+    .still-questions {
+      background: linear-gradient(145deg, #1b1b2a, #0d0d16);
+      border-radius: 70px;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 60px 0;
+      border: 1px solid #4b4b6a;
+    }
+    .still-questions h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .still-questions p {
+      color: #b0b0c8;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 1.1rem;
+    }
+    .btn-primary {
+      background: #6c5dd3;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #5849b8;
+      transform: translateY(-3px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #6c5dd3;
+      color: white;
+    }
+    .btn-outline:hover {
+      background: #6c5dd3;
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid #2a2a38;
+      padding: 40px 0;
+      text-align: center;
+      color: #888;
+    }
+    .footer-links {
+      margin-top: 15px;
+    }
+    .footer-links a {
+      color: #888;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .footer-links a:hover {
+      color: #b2a5ff;
+    }
+
+    @media (max-width: 800px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      .page-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+    <!-- OR for PNG file -->
+    <link rel="icon" type="image/png" href="favicon.ico.png">
+ <!-- CANONICAL TAG - Add this -->
+  <link rel="canonical" href="https://hidigitalgroup.vercel.app/faq.html">
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Hanan Irfan Digital <span>solve & deliver</span></div>
+      <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main FAQ Content -->
+  <main class="container">
+    <h1 class="page-title">❓ Frequently Asked Questions</h1>
+    <p class="page-description">
+      Everything you need to know about our services, process, payments, and delivery. Can't find what you're looking for? Contact us directly.
+    </p>
+
+    <!-- Search bar -->
+    <div class="faq-search">
+      <div class="search-container">
+        <i class="fas fa-search"></i>
+        <input type="text" id="faqSearch" placeholder="Search FAQ... (e.g., payment, delivery, website)">
+      </div>
+      <div class="search-results-count" id="searchResultsCount">Showing all questions</div>
+    </div>
+
+    <!-- Category tabs -->
+    <div class="category-tabs" id="categoryTabs">
+      <button class="category-tab active" data-category="all">All Questions</button>
+      <button class="category-tab" data-category="general">General</button>
+      <button class="category-tab" data-category="services">Services & Pricing</button>
+      <button class="category-tab" data-category="process">Process & Delivery</button>
+      <button class="category-tab" data-category="payment">Payment & Refunds</button>
+      <button class="category-tab" data-category="technical">Technical</button>
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="faq-grid" id="faqGrid">
+      
+      <!-- GENERAL CATEGORY -->
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <h3>What is Hanan Irfan Digital Group?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We are a full-service digital agency based in Rahim Yar Khan, Pakistan. We offer graphic design, web development, SEO, Microsoft Office assistance, assignment help, video editing, thumbnail creation, image resizing, YouTube content creation, and content writing. Our motto: "We solve & deliver."</p>
+        </div>
+        <span class="faq-category-badge">General</span>
+      </div>
+
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <h3>Do you work with international clients?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely! We have clients from USA, UK, Canada, Australia, UAE, and many other countries. We accept international payments via PayPal, Wise, and bank transfer. Time zone differences are not a problem – we're available 24/7.</p>
+        </div>
+        <span class="faq-category-badge">General</span>
+      </div>
+
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <h3>What makes you different from other agencies?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>✅ Fast response (under 1 hour)<br>✅ Unlimited revisions on most services<br>✅ Transparent pricing (no hidden fees)<br>✅ One-stop solution for all digital needs<br>✅ 24/7 communication via WhatsApp<br>✅ We actually solve problems, not just take orders</p>
+        </div>
+        <span class="faq-category-badge">General</span>
+      </div>
+
+      <!-- SERVICES & PRICING CATEGORY -->
+      <div class="faq-item" data-category="services">
+        <div class="faq-question">
+          <h3>What services do you offer exactly?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We offer 12+ services:</p>
+          <ul>
+            <li>🎨 Graphic Design (logo, branding, posters)</li>
+            <li>💻 Web Development (React, Node, Python, PHP)</li>
+            <li>📈 SEO (search engine optimization)</li>
+            <li>📊 Word / PowerPoint / Excel</li>
+            <li>📝 Assignments & Presentations</li>
+            <li>🎬 Video Editing</li>
+            <li>🖼️ Thumbnail Creator</li>
+            <li>📐 Image Resizer</li>
+            <li>▶️ YouTube Content Creator</li>
+            <li>✍️ Content Writing</li>
+            <li>🏷️ Branding & Identity</li>
+            <li>✨ Custom Requests</li>
+          </ul>
+        </div>
+        <span class="faq-category-badge">Services</span>
+      </div>
+
+      <div class="faq-item" data-category="services">
+        <div class="faq-question">
+          <h3>How much do your services cost?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Pricing varies by service complexity:</p>
+          <ul>
+            <li>Bsically Depends on our Talk. </li>
+            <li>Graphic design: starting ₨ 1,000</li>
+            <li>Web development: starting ₨ 5,000</li>
+            <li>SEO: starting ₨ 6,000/month</li>
+            <li>Word/PPT/Excel: starting ₨ 600</li>
+            <li>Video editing: starting ₨ 300/minute</li>
+            <li>Thumbnails: starting ₨ 1,000 each</li>
+          </ul>
+          <p>Contact us for a custom quote – we offer discounts for packages.</p>
+        </div>
+        <span class="faq-category-badge">Services</span>
+      </div>
+
+      <div class="faq-item" data-category="services">
+        <div class="faq-question">
+          <h3>Do you offer custom packages?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! If you need a combination of services (e.g., website + SEO + content), we create custom packages with special pricing. Just tell us your requirements and we'll prepare a tailored solution.</p>
+        </div>
+        <span class="faq-category-badge">Services</span>
+      </div>
+
+      <!-- PROCESS & DELIVERY CATEGORY -->
+      <div class="faq-item" data-category="process">
+        <div class="faq-question">
+          <h3>How does your process work?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Our 5-step process:</p>
+          <ol>
+            <li><strong>Contact us</strong> – via WhatsApp, email, or form</li>
+            <li><strong>Discuss & quote</strong> – we understand your need and provide pricing</li>
+            <li><strong>We solve & create</strong> – our team starts working</li>
+            <li><strong>Review & approve</strong> – you get drafts, request revisions</li>
+            <li><strong>Final delivery</strong> – you receive the completed work</li>
+          </ol>
+        </div>
+        <span class="faq-category-badge">Process</span>
+      </div>
+
+      <div class="faq-item" data-category="process">
+        <div class="faq-question">
+          <h3>How long does delivery take?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Timeline depends on the project:</p>
+          <ul>
+            <li>Thumbnails, image resizing: 4-8 hours</li>
+            <li>Graphic design, PowerPoint: 1-2 days</li>
+            <li>Video editing: 2-4 days</li>
+            <li>Websites: 5-10 days</li>
+            <li>SEO campaigns: ongoing monthly</li>
+          </ul>
+          <p>Urgent projects? We offer expedited delivery for an additional fee.</p>
+        </div>
+        <span class="faq-category-badge">Process</span>
+      </div>
+
+      <div class="faq-item" data-category="process">
+        <div class="faq-question">
+          <h3>Do you offer revisions?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! We offer unlimited revisions on most services until you're 100% satisfied. For complex projects (like websites), we include 2 rounds of revisions in the base price, with additional revisions available at a nominal cost.</p>
+        </div>
+        <span class="faq-category-badge">Process</span>
+      </div>
+
+      <!-- PAYMENT & REFUNDS CATEGORY -->
+      <div class="faq-item" data-category="payment">
+        <div class="faq-question">
+          <h3>What payment methods do you accept?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p><strong>Local (Pakistan):</strong> JazzCash, EasyPaisa, Bank Transfer.<br>
+         </p>
+        </div>
+        <span class="faq-category-badge">Payment</span>
+      </div>
+
+      <div class="faq-item" data-category="payment">
+        <div class="faq-question">
+          <h3>Do I need to pay in advance?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>For larger projects (websites, branding, SEO campaigns), we require 50% advance and 50% on delivery. For smaller tasks (thumbnails, image editing, small assignments), we may ask for full payment upfront. This policy ensures commitment from both sides.</p>
+        </div>
+        <span class="faq-category-badge">Payment</span>
+      </div>
+
+      <div class="faq-item" data-category="payment">
+        <div class="faq-question">
+          <h3>What is your refund policy?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We want you to be happy. If we cannot deliver what was promised, we offer a full refund of the advance. For projects where work has already begun, we provide partial refunds based on completed work. No questions asked if you're unsatisfied within the first 24 hours.</p>
+        </div>
+        <span class="faq-category-badge">Payment</span>
+      </div>
+
+      <!-- TECHNICAL CATEGORY -->
+      <div class="faq-item" data-category="technical">
+        <div class="faq-question">
+          <h3>What technologies do you use for web development?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>We use modern technologies:</p>
+          <ul>
+            <li>Frontend: HTML5, CSS3, JavaScript, React, Angular, Vue</li>
+            <li>Backend: Node.js, Python (Django/Flask), PHP (Laravel)</li>
+            <li>Databases: MySQL, MongoDB, PostgreSQL</li>
+            
+            <li>Mobile: React Native (for apps)</li>
+          </ul>
+        </div>
+        <span class="faq-category-badge">Technical</span>
+      </div>
+
+      <div class="faq-item" data-category="technical">
+        <div class="faq-question">
+          <h3>Do you provide website hosting and domain?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes! We can help you purchase a domain and set up hosting. We offer managed hosting packages starting from ₨ 5,000/year with free SSL, daily backups, and 24/7 support. For larger projects, we recommend and set up cloud hosting (AWS, DigitalOcean, etc.).</p>
+        </div>
+        <span class="faq-category-badge">Technical</span>
+      </div>
+
+      <div class="faq-item" data-category="technical">
+        <div class="faq-question">
+          <h3>Will my website be mobile-friendly?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely! All websites we build are 100% responsive – they look great on mobile phones, tablets, and desktops. We test on multiple devices and browsers before delivery.</p>
+        </div>
+        <span class="faq-category-badge">Technical</span>
+      </div>
+
+      <div class="faq-item" data-category="technical">
+        <div class="faq-question">
+          <h3>Do you provide SEO after website delivery?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, we offer ongoing SEO packages (monthly retainers) to help your website rank higher on Google. This includes keyword research, on-page optimization, content creation, and backlink building. We provide monthly reports showing progress.</p>
+        </div>
+        <span class="faq-category-badge">Technical</span>
+      </div>
+    </div>
+
+    <!-- Still have questions section -->
+    <section class="still-questions">
+      <h2>🤔 Still have questions?</h2>
+      <p>We're here to help! Contact us directly and we'll answer within 1 hour.</p>
+      <div class="contact-buttons">
+        <a href="https://api.whatsapp.com/send/?phone=923106359235&text&type=phone_number&app_absent=0" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+        <a href="mailto:hananirfan91@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> Send Email</a>
+        <a href="tel:+92 310 63592359" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call Now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Hanan Irfan Digital Group – We solve & deliver. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="aboutuspge.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="howitworks.html">How It Works</a>
+        <a href="projects.html">Projects</a>
+        
+        <a href="contact.html">Contact</a>
+        <a href="faq.html" style="color: #b2a5ff;">FAQ</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for FAQ functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      const searchInput = document.getElementById('faqSearch');
+      const searchResultsCount = document.getElementById('searchResultsCount');
+      const categoryTabs = document.querySelectorAll('.category-tab');
+      
+      // Track active category
+      let activeCategory = 'all';
+      let searchTerm = '';
+
+      // Toggle FAQ answer on click
+      faqItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+          // Don't toggle if clicking on a link inside answer
+          if (e.target.tagName === 'A') return;
+          
+          this.classList.toggle('active');
+          
+          // Optional: close other items
+          // faqItems.forEach(otherItem => {
+          //   if (otherItem !== this) otherItem.classList.remove('active');
+          // });
+        });
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', function() {
+        searchTerm = this.value.toLowerCase().trim();
+        filterFAQs();
+      });
+
+      // Category filter
+      categoryTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Update active tab
+          categoryTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          
+          activeCategory = this.dataset.category;
+          filterFAQs();
+        });
+      });
+
+      function filterFAQs() {
+        let visibleCount = 0;
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('h3').textContent.toLowerCase();
+          const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+          const category = item.dataset.category;
+          
+          // Check category match
+          const categoryMatch = activeCategory === 'all' || category === activeCategory;
+          
+          // Check search term match
+          const searchMatch = searchTerm === '' || 
+                             question.includes(searchTerm) || 
+                             answer.includes(searchTerm);
+          
+          if (categoryMatch && searchMatch) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+            // Also close if hidden
+            item.classList.remove('active');
+          }
+        });
+        
+        // Update results count
+        if (searchTerm) {
+          searchResultsCount.textContent = `Found ${visibleCount} question${visibleCount !== 1 ? 's' : ''}`;
+        } else {
+          searchResultsCount.textContent = `Showing ${visibleCount} question${visibleCount !== 1 ? 's' : ''}`;
+        }
+      }
+
+      // Open first FAQ by default (optional)
+      // faqItems[0].classList.add('active');
+
+      // Add smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target) target.scrollIntoView({behavior: 'smooth'});
+        });
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hanan Irfan Digital Group",
+  "image": "https://hidigitalgroup.vercel.app/og-image.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Abu Dhabi Road",
+    "addressLocality": "Rahim Yar Khan",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92 310 6359235",
+  "openingHours": "Mo-Sa 09:00-23:00",
+  "sameAs": [
+    "https://facebook.com/HananIrfan001",
+    "https://instagram.com/tearswithhanan/",
+    "https://www.youtube.com/@ancientmystery-0"
+  ]
+}
+</script>
+</body>
+</html>

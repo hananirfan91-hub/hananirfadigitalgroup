@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitemap - Hanan Irfan Digital Group | Complete Website Guide</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0b12;
+      color: #f0f0f7;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    
+    /* Header styles (simplified for sitemap) */
+    .site-header {
+      background: #0c0c15;
+      border-bottom: 1px solid #2a2a3a;
+      padding: 25px 0;
+      margin-bottom: 40px;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #b2a5ff, #ff9ec7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span {
+      font-size: 1rem;
+      color: #aaa;
+      margin-left: 12px;
+      -webkit-text-fill-color: #aaa;
+    }
+    .back-home {
+      display: inline-block;
+      margin-top: 15px;
+      color: #b2a5ff;
+      text-decoration: none;
+    }
+    .back-home i {
+      margin-right: 8px;
+    }
+
+    /* Sitemap specific styles */
+    .sitemap-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 30px 0 20px;
+      background: linear-gradient(145deg, #ffffff, #c0b7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .sitemap-description {
+      color: #b0b0c8;
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin-bottom: 50px;
+    }
+    
+    .sitemap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin: 50px 0;
+    }
+    
+    .sitemap-section {
+      background: #15151f;
+      border-radius: 30px;
+      padding: 30px;
+      border: 1px solid #2b2b3a;
+    }
+    .sitemap-section h2 {
+      font-size: 1.8rem;
+      color: #b2a5ff;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #b2a5ff;
+    }
+    .sitemap-section h2 i {
+      margin-right: 12px;
+      color: #ff9ec7;
+    }
+    .sitemap-section ul {
+      list-style: none;
+    }
+    .sitemap-section ul li {
+      margin-bottom: 15px;
+    }
+    .sitemap-section ul li a {
+      color: #e0e0f0;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+    .sitemap-section ul li a:hover {
+      background: #20202b;
+      color: #b2a5ff;
+      transform: translateX(5px);
+    }
+    .sitemap-section ul li a i {
+      color: #6c5dd3;
+      width: 20px;
+      font-size: 1rem;
+    }
+    .page-count {
+      color: #888;
+      font-size: 0.9rem;
+      margin-left: auto;
+    }
+    
+    .subpages {
+      margin-left: 35px;
+      margin-top: 8px;
+      list-style: none;
+      border-left: 2px solid #2b2b3a;
+      padding-left: 15px;
+    }
+    .subpages li {
+      margin-bottom: 10px;
+    }
+    .subpages li a {
+      font-size: 0.95rem;
+      color: #b0b0c8;
+    }
+    
+    /* XML Sitemap notice */
+    .xml-notice {
+      background: #1a1a27;
+      border-radius: 60px;
+      padding: 40px;
+      margin: 60px 0;
+      border: 1px solid #4b4b6a;
+      text-align: center;
+    }
+    .xml-notice h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .xml-notice code {
+      background: #2b2b3a;
+      padding: 12px 24px;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 20px 0;
+      font-size: 1.1rem;
+      color: #b2a5ff;
+    }
+    .btn {
+      display: inline-block;
+      background: #6c5dd3;
+      color: white;
+      padding: 14px 36px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #5849b8;
+      transform: translateY(-3px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #6c5dd3;
+    }
+    .btn-outline:hover {
+      background: #6c5dd3;
+    }
+    
+    /* Footer */
+    .footer {
+      border-top: 1px solid #2a2a38;
+      padding: 40px 0;
+      margin-top: 60px;
+      text-align: center;
+      color: #888;
+    }
+    
+    @media (max-width: 900px) {
+      .sitemap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .sitemap-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+    <!-- OR for PNG file -->
+    <link rel="icon" type="image/png" href="favicon.ico.png">
+ <!-- CANONICAL TAG - Add this -->
+  <link rel="canonical" href="https://hidigitalgroup.vercel.app/sitemap.html">
+  
+</head>
+<body>
+  <!-- Simple header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">Hanan Irfan Digital <span>solve & deliver</span></div>
+      <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main sitemap content -->
+  <main class="container">
+    <h1 class="sitemap-title">🗺️ Website Sitemap</h1>
+    <p class="sitemap-description">
+      Complete guide to all pages on Hanan Irfan Digital Group. Use this sitemap to navigate our website or for search engine optimization.
+    </p>
+
+    <!-- Sitemap grid -->
+    <div class="sitemap-grid">
+      
+      <!-- Main pages section -->
+      <div class="sitemap-section">
+        <h2><i class="fas fa-home"></i> Main Pages</h2>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Homepage <span class="page-count">(index.html)</span></a></li>
+          <li><a href="aboutuspge.html"><i class="fas fa-chevron-right"></i> About Us <span class="page-count">(about.html)</span></a></li>
+          <li><a href="service.html"><i class="fas fa-chevron-right"></i> Services <span class="page-count">(services.html)</span></a></li>
+          <li><a href="howitworks.html"><i class="fas fa-chevron-right"></i> How It Works <span class="page-count">(how-it-works.html)</span></a></li>
+          <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projects <span class="page-count">(portfolio.html)</span></a></li>
+          
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us <span class="page-count">(contact.html)</span></a></li>
+          <li><a href="sitemap.html"><i class="fas fa-chevron-right"></i> Sitemap <span class="page-count">(sitemap.html)</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Services section -->
+      <div class="sitemap-section">
+        <h2><i class="fas fa-cogs"></i> All Services</h2>
+        <ul>
+          <li><a href="service.html#graphic"><i class="fas fa-paint-brush"></i> Graphic Design</a></li>
+          <li><a href="service.html#web"><i class="fas fa-code"></i> Web Development</a></li>
+          <li><a href="service.html#seo"><i class="fas fa-chart-line"></i> SEO Services</a></li>
+          <li><a href="service.html#office"><i class="fas fa-file-word"></i> Word / PowerPoint / Excel</a></li>
+          <li><a href="service.html#assignments"><i class="fas fa-file-powerpoint"></i> Assignments & Presentations</a></li>
+          <li><a href="service.html#video"><i class="fas fa-video"></i> Video Editing</a></li>
+          <li><a href="service.html#thumbnails"><i class="fas fa-images"></i> Thumbnail Creator</a></li>
+          <li><a href="service.html#image"><i class="fas fa-crop-alt"></i> Image Resizer</a></li>
+          <li><a href="service.html#youtube"><i class="fab fa-youtube"></i> YouTube Content Creator</a></li>
+          <li><a href="service.html#content"><i class="fas fa-pen-fancy"></i> Content Writing</a></li>
+          <li><a href="service.html#branding"><i class="fas fa-bezier-curve"></i> Branding & Identity</a></li>
+          <li><a href="service.html#custom"><i class="fas fa-magic"></i> Custom Requests</a></li>
+        </ul>
+      </div>
+
+      <!-- Portfolio & Blog section -->
+      <div class="sitemap-section">
+        <h2><i class="fas fa-briefcase"></i> Projects & Blog</h2>
+        <ul>
+          <li><a href="projects.html"><i class="fas fa-grid-2"></i> All  Projects</a></li>
+          <li><a href="projects.html#websites"><i class="fas fa-laptop"></i> Websites</a></li>
+          <li><a href="projects.html#graphic"><i class="fas fa-paint-brush"></i> Graphic Design Projects</a></li>
+          <li><a href="projects.html#branding"><i class="fas fa-tag"></i> Branding Work</a></li>
+          <li><a href="projects.html#seo"><i class="fas fa-chart-simple"></i> SEO Case Studies</a></li>
+        </ul>
+        <ul style="margin-top: 20px;">
+          <li><a href="https://692093f818c89.site123.me/articles/how-hanan-irfan-and-quickworks-it-center-are-empowering-small-businesses-in-the-digital-age"><i class="fas fa-newspaper"></i> Blog Home</a></li>
+          <li><a href="https://692093f818c89.site123.me/articles/how-hanan-irfan-and-quickworks-it-center-are-empowering-small-businesses-in-the-digital-age"><i class="fas fa-search"></i> SEO Articles</a></li>
+          <li><a href="https://hadithwisdomhub0.vercel.app"><i class="fas fa-paint-brush"></i> Design Tips</a></li>
+          <li><a href="https://aiblogs0.vercel.app"><i class="fas fa-microchip"></i> Tech & Development</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Info section -->
+      <div class="sitemap-section">
+        <h2><i class="fas fa-building"></i> Company Info</h2>
+        <ul>
+          <li><a href="aboutuspge.html#story"><i class="fas fa-history"></i> Our Story</a></li>
+         
+          <li><a href="aboutuspge.html#abc"><i class="fas fa-bullseye"></i> Mission & Vision</a></li>
+          <li><a href="aboutuspge.html"><i class="fas fa-heart"></i> Core Values</a></li>
+          <li><a href="howitworks.html#what-we-offer"><i class="fas fa-gears"></i> Our Process</a></li>
+          <li><a href="faq.html"><i class="fas fa-question-circle"></i> Process FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact section -->
+      <div class="sitemap-section">
+        <h2><i class="fas fa-phone-alt"></i> Contact & Support</h2>
+        <ul>
+          <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Form</a></li>
+          <li><a href="contact.html#whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          <li><a href="contact.html#map"><i class="fas fa-map-marker-alt"></i> Office Location</a></li>
+          <li><a href="contact.html#faq"><i class="fas fa-question"></i> Frequently Asked Questions</a></li>
+          <li><a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+          <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal & Technical -->
+      <div class="sitemap-section">
+        <h2><i class="fas fa-file-code"></i> Technical Pages</h2>
+        <ul>
+          <li><a href="sitemap.xml"><i class="fas fa-sitemap"></i> XML Sitemap (for search engines)</a></li>
+          <li><a href="robot.txt"><i class="fas fa-robot"></i> robots.txt</a></li>
+         
+        </ul>
+      </div>
+    </div>
+
+    <!-- XML Sitemap notice -->
+    <div class="xml-notice">
+      <h3>🤖 For Search Engines</h3>
+      <p>We also provide an XML sitemap specifically for search engines (Google, Bing, etc.)</p>
+      <code>https://www.hananirfan.digital/sitemap.xml</code>
+      <div>
+        <a href="sitemap.xml" class="btn"><i class="fas fa-download"></i> View XML Sitemap</a>
+        <a href="robot.txt" class="btn btn-outline"><i class="fas fa-robot"></i> Check robots.txt</a>
+      </div>
+      <p style="margin-top: 20px; color: #888; font-size: 0.9rem;">
+        Last updated: February 2026 | Total pages: 25+
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Hanan Irfan Digital Group – We solve & deliver. All rights reserved.</p>
+      <p style="margin-top: 10px;">
+        <a href="index.html" style="color: #888; margin: 0 10px;">Home</a> |
+        <a href="contact.html" style="color: #888; margin: 0 10px;">Contact</a> |
+        <a href="sitemap.html" style="color: #b2a5ff; margin: 0 10px;">Sitemap</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- XML Sitemap content (hidden, but included for reference) -->
+  <div style="display: none;">
+    <!-- This is the XML sitemap content that would be in sitemap.xml -->
+    <!-- 
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url><loc>https://www.hananirfan.digital/index.html</loc><priority>1.0</priority></url>
+      <url><loc>https://www.hananirfan.digital/about.html</loc><priority>0.8</priority></url>
+      <url><loc>https://www.hananirfan.digital/services.html</loc><priority>0.9</priority></url>
+      <url><loc>https://www.hananirfan.digital/how-it-works.html</loc><priority>0.8</priority></url>
+      <url><loc>https://www.hananirfan.digital/portfolio.html</loc><priority>0.8</priority></url>
+      <url><loc>https://www.hananirfan.digital/blog.html</loc><priority>0.7</priority></url>
+      <url><loc>https://www.hananirfan.digital/contact.html</loc><priority>0.8</priority></url>
+      <url><loc>https://www.hananirfan.digital/sitemap.html</loc><priority>0.5</priority></url>
+    </urlset>
+    -->
+  </div>
+
+  <!-- robots.txt content (for reference) -->
+  <div style="display: none;">
+    <!-- 
+    User-agent: *
+    Allow: /
+    Disallow: /admin/
+    Disallow: /private/
+    Sitemap: https://www.hananirfan.digital/sitemap.xml
+    -->
+  </div>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior: 'smooth'});
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hanan Irfan Digital Group",
+  "image": "https://hidigitalgroup.vercel.app/og-image.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Abu Dhabi Road",
+    "addressLocality": "Rahim Yar Khan",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92 310 6359235",
+  "openingHours": "Mo-Sa 09:00-23:00",
+  "sameAs": [
+    "https://facebook.com/HananIrfan001",
+    "https://instagram.com/tearswithhanan/",
+    "https://www.youtube.com/@ancientmystery-0"
+  ]
+}
+</script>
+</body>
+</html>

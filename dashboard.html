@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Hanan Irfan Digital Group</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <style>
+    /* Your existing styles remain exactly the same */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0b12;
+      color: #f0f0f7;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* Header */
+    .dashboard-header {
+      background: #0c0c15;
+      border-bottom: 1px solid #2a2a3a;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #b2a5ff, #ff9ec7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+    }
+    .logo span {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-left: 8px;
+    }
+    .header-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .home-btn {
+      background: #2b2b3a;
+      border: 1px solid #4a4a60;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .home-btn:hover {
+      background: #3a3a4a;
+      transform: translateY(-2px);
+    }
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .user-avatar {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(145deg, #b2a5ff, #ff9ec7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      position: relative;
+    }
+    .user-avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .avatar-dropdown {
+      position: absolute;
+      top: 55px;
+      right: 0;
+      background: #15151f;
+      border: 1px solid #2b2b3a;
+      border-radius: 15px;
+      min-width: 200px;
+      display: none;
+      z-index: 1001;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .avatar-dropdown.show {
+      display: block;
+    }
+    .avatar-dropdown a, .avatar-dropdown button {
+      display: block;
+      width: 100%;
+      padding: 12px 20px;
+      color: #b0b0c8;
+      text-decoration: none;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .avatar-dropdown a:hover, .avatar-dropdown button:hover {
+      background: #2b2b3a;
+      color: white;
+    }
+    .user-name {
+      color: #b0b0c8;
+    }
+    .logout-btn {
+      background: #2b2b3a;
+      border: 1px solid #4a4a60;
+      color: #ff9ec7;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+    .logout-btn:hover {
+      background: #3a3a4a;
+      transform: translateY(-2px);
+    }
+
+    /* Dashboard Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    /* Sidebar */
+    .dashboard-sidebar {
+      background: #15151f;
+      border-radius: 30px;
+      padding: 30px 20px;
+      border: 1px solid #2b2b3a;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+    }
+    .profile-summary {
+      text-align: center;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #2b2b3a;
+      margin-bottom: 25px;
+    }
+    .profile-avatar-large {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(145deg, #b2a5ff, #ff9ec7);
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      position: relative;
+      cursor: pointer;
+    }
+    .profile-avatar-large img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .avatar-upload-overlay {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #6c5dd3;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 2px solid #15151f;
+    }
+    .avatar-upload-overlay i {
+      font-size: 0.9rem;
+      color: white;
+    }
+    #avatarUpload {
+      display: none;
+    }
+    .profile-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .profile-email {
+      color: #b0b0c8;
+      font-size: 0.9rem;
+    }
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 20px;
+      border-radius: 30px;
+      color: #b0b0c8;
+      text-decoration: none;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .nav-item i {
+      width: 24px;
+      color: #b2a5ff;
+    }
+    .nav-item:hover {
+      background: #20202b;
+      color: white;
+    }
+    .nav-item.active {
+      background: #6c5dd3;
+      color: white;
+    }
+    .nav-item.active i {
+      color: white;
+    }
+
+    /* Main Content Area */
+    .dashboard-main {
+      background: #15151f;
+      border-radius: 30px;
+      padding: 30px;
+      border: 1px solid #2b2b3a;
+    }
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      background: linear-gradient(145deg, #ffffff, #c0b7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Services Grid */
+    .services-grid-simple {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .service-card-simple {
+      background: #1e1e2a;
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .service-card-simple:hover {
+      transform: translateY(-5px);
+      border: 1px solid #6c5dd3;
+    }
+    .service-card-simple i {
+      font-size: 2.5rem;
+      color: #b2a5ff;
+      margin-bottom: 15px;
+    }
+    .service-card-simple h4 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .service-card-simple p {
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    /* Quick Actions */
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .action-card {
+      background: #1e1e2a;
+      border-radius: 20px;
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .action-card:hover {
+      background: #2a2a3a;
+      transform: translateX(5px);
+    }
+    .action-card i {
+      font-size: 2rem;
+      color: #b2a5ff;
+    }
+    .action-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+    .action-card p {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Stats Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .stat-card {
+      background: #1e1e2a;
+      border-radius: 30px;
+      padding: 25px;
+      border: 1px solid #2b2b3a;
+    }
+    .stat-card i {
+      font-size: 2rem;
+      color: #b2a5ff;
+      margin-bottom: 15px;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .stat-label {
+      color: #b0b0c8;
+    }
+
+    /* Projects Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .project-card {
+      background: #1e1e2a;
+      border-radius: 30px;
+      padding: 25px;
+      border: 1px solid #2b2b3a;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .status-badge {
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .status-completed { background: #1a3a2a; color: #4caf50; }
+    .status-progress { background: #3a2a1a; color: #ffa64d; }
+    .status-pending { background: #3a1f2a; color: #ff6b6b; }
+    .project-meta {
+      display: flex;
+      gap: 20px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    /* Orders Table */
+    .orders-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .orders-table th {
+      text-align: left;
+      padding: 15px;
+      color: #b2a5ff;
+      border-bottom: 2px solid #2b2b3a;
+    }
+    .orders-table td {
+      padding: 15px;
+      border-bottom: 1px solid #2b2b3a;
+      color: #b0b0c8;
+    }
+    .orders-table tr:hover {
+      background: #1e1e2a;
+    }
+
+    /* Profile Edit Form */
+    .profile-form {
+      max-width: 600px;
+    }
+    .form-group {
+      margin-bottom: 25px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #b0b0c8;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 15px 20px;
+      background: #20202b;
+      border: 2px solid #2b2b3a;
+      border-radius: 30px;
+      color: white;
+      font-size: 1rem;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #6c5dd3;
+    }
+    .save-btn {
+      background: #6c5dd3;
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .save-btn:hover {
+      background: #5849b8;
+      transform: translateY(-2px);
+    }
+
+    /* Settings */
+    .settings-card {
+      background: #1e1e2a;
+      border-radius: 30px;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #2b2b3a;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #6c5dd3;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    /* Loading */
+    .loading-spinner {
+      text-align: center;
+      padding: 50px;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #2b2b3a;
+      border-top-color: #6c5dd3;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Message */
+    .message {
+      padding: 15px 20px;
+      border-radius: 30px;
+      margin: 20px 0;
+      display: none;
+    }
+    .message.success {
+      background: #1a3a2a;
+      border: 1px solid #4caf50;
+      color: #b2ffb2;
+    }
+    .message.error {
+      background: #3a1f2a;
+      border: 1px solid #ff6b6b;
+      color: #ffb3b3;
+    }
+
+    /* Contact Button */
+    .contact-btn {
+      background: #6c5dd3;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .contact-btn:hover {
+      background: #5849b8;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid-simple {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .orders-table {
+        display: block;
+        overflow-x: auto;
+      }
+      .services-grid-simple {
+        grid-template-columns: 1fr;
+      }
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+    <!-- OR for PNG file -->
+    <link rel="icon" type="image/png" href="favicon.ico.png">
+ <!-- CANONICAL TAG - Add this -->
+  <link rel="canonical" href="https://hidigitalgroup.vercel.app/dashboard.html">
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="dashboard-header">
+    <div class="container header-inner">
+      <div class="logo" onclick="goToHome()">Hanan Irfan Digital <span>dashboard</span></div>
+      <div class="header-buttons">
+        <a href="index.html" class="home-btn"><i class="fas fa-home"></i> Home</a>
+        <div class="user-menu">
+          <div class="user-avatar" id="userAvatar" onclick="toggleAvatarDropdown()">
+            <span id="avatarInitial">U</span>
+            <img id="avatarImage" src="" style="display: none;">
+            <div class="avatar-dropdown" id="avatarDropdown">
+              <a href="#" onclick="switchSection('profile'); event.preventDefault(); toggleAvatarDropdown();"><i class="fas fa-user-edit"></i> Profile</a>
+              <a href="#" onclick="switchSection('settings'); event.preventDefault(); toggleAvatarDropdown();"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" onclick="switchSection('support'); event.preventDefault(); toggleAvatarDropdown();"><i class="fas fa-headset"></i> Support</a>
+              <div style="border-top: 1px solid #2b2b3a; margin: 5px 0;"></div>
+              <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <div class="container">
+    <div class="dashboard-grid">
+      <!-- Sidebar -->
+      <aside class="dashboard-sidebar">
+        <div class="profile-summary" id="profileSummary">
+          <div class="profile-avatar-large" onclick="document.getElementById('avatarUpload').click()">
+            <span id="profileAvatarInitial">U</span>
+            <img id="profileAvatarImage" src="" style="display: none;">
+            <div class="avatar-upload-overlay">
+              <i class="fas fa-camera"></i>
+            </div>
+          </div>
+          <input type="file" id="avatarUpload" accept="image/*" style="display: none;" onchange="uploadAvatar(event)">
+          <div class="profile-name" id="profileName">Loading...</div>
+          <div class="profile-email" id="profileEmail">loading...</div>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <div class="nav-item active" onclick="switchSection('overview')">
+            <i class="fas fa-chart-pie"></i> Overview
+          </div>
+          <div class="nav-item" onclick="switchSection('services')">
+            <i class="fas fa-cogs"></i> Our Services
+          </div>
+          
+          <div class="nav-item" onclick="switchSection('orders')">
+            <i class="fas fa-shopping-cart"></i> Orders
+          </div>
+          <div class="nav-item" onclick="switchSection('profile')">
+            <i class="fas fa-user-edit"></i> Profile
+          </div>
+          <div class="nav-item" onclick="switchSection('settings')">
+            <i class="fas fa-cog"></i> Settings
+          </div>
+          <div class="nav-item" onclick="switchSection('support')">
+            <i class="fas fa-headset"></i> Support
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="dashboard-main">
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading your dashboard...</p>
+        </div>
+
+        <!-- Message Display -->
+        <div id="messageBox" class="message"></div>
+
+        <!-- OVERVIEW SECTION -->
+        <div id="overviewSection" class="content-section active">
+          <h2 class="section-title">Welcome Back, <span id="welcomeName">Customer</span>! 👋</h2>
+          <p style="color: #b0b0c8; margin-bottom: 30px;">Here's what we can help you with today.</p>
+          
+          <!-- Quick Actions -->
+          <div class="quick-actions">
+            <div class="action-card" onclick="window.location.href='service.html'">
+              <i class="fas fa-cogs"></i>
+              <div>
+                <h4>Our Services</h4>
+                <p>Browse all services we offer</p>
+              </div>
+            </div>
+            <div class="action-card" onclick="window.location.href='contact.html'">
+              <i class="fas fa-headset"></i>
+              <div>
+                <h4>Contact Us</h4>
+                <p>Get help with your project</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simple Services Overview -->
+          <h3 style="margin: 40px 0 20px;">Popular Services</h3>
+          <div class="services-grid-simple">
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-paint-brush"></i>
+              <h4>Graphic Design</h4>
+              <p>Logos, branding, posters</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-code"></i>
+              <h4>Web Development</h4>
+              <p>Websites, apps, e-commerce</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-chart-line"></i>
+              <h4>SEO</h4>
+              <p>Rank higher on Google</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-video"></i>
+              <h4>Video Editing</h4>
+              <p>Promotional & YouTube videos</p>
+            </div>
+          </div>
+
+          <!-- Need Help Section -->
+          <div style="background: #1e1e2a; border-radius: 20px; padding: 30px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <h3 style="margin-bottom: 10px;">Need a custom project?</h3>
+              <p style="color: #b0b0c8;">Tell us your requirements and we'll solve it.</p>
+            </div>
+            <a href="contact.html" class="contact-btn"><i class="fas fa-headset"></i> Contact Us Now</a>
+          </div>
+        </div>
+
+        <!-- SERVICES SECTION -->
+        <div id="servicesSection" class="content-section">
+          <h2 class="section-title">Our Services</h2>
+          <p style="color: #b0b0c8; margin-bottom: 30px;">Browse our complete range of digital services</p>
+          
+          <div class="services-grid-simple" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-paint-brush"></i>
+              <h4>Graphic Design</h4>
+              <p>Logo, branding, posters, social media creatives, packaging, thumbnails</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-code"></i>
+              <h4>Web Development</h4>
+              <p>HTML/CSS/JS, React, Node, Python, PHP, WordPress, e‑commerce</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-chart-line"></i>
+              <h4>SEO Services</h4>
+              <p>On‑page, technical, local SEO, backlinks, keyword research</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-file-word"></i>
+              <h4>Word/PPT/Excel</h4>
+              <p>Professional documents, presentations, data analysis, dashboards</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-file-powerpoint"></i>
+              <h4>Presentation Maker</h4>
+              <p>Stunning PowerPoint, Google Slides, Canva presentations</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-video"></i>
+              <h4>Video Editing</h4>
+              <p>Cut, effects, color grading, transitions, promotional videos</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-images"></i>
+              <h4>Thumbnail Creator</h4>
+              <p>Click‑worthy YouTube thumbnails, high CTR designs</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fas fa-crop-alt"></i>
+              <h4>Image Resizer</h4>
+              <p>Resize, crop, compress any image for web and social media</p>
+            </div>
+            <div class="service-card-simple" onclick="window.location.href='service.html'">
+              <i class="fab fa-youtube"></i>
+              <h4>YouTube Creator</h4>
+              <p>Complete YouTube content production</p>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <!-- ORDERS SECTION -->
+        <div id="ordersSection" class="content-section">
+          <h2 class="section-title">Order History</h2>
+          <p style="color: #b0b0c8; margin-bottom: 20px;">To place a new order, please contact us directly.</p>
+          <a href="contact.html" class="contact-btn" style="margin-bottom: 30px;"><i class="fas fa-headset"></i> Contact Us for Orders</a>
+          
+          
+        </div>
+
+        <!-- PROFILE SECTION (FIXED) -->
+        <div id="profileSection" class="content-section">
+          <h2 class="section-title">Profile Settings</h2>
+          <form class="profile-form" onsubmit="updateProfile(event)">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="profileNameInput" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="profileEmailInput" required disabled style="opacity: 0.7;">
+              <small style="color: #888;">Email cannot be changed</small>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="profilePhoneInput">
+            </div>
+            <div class="form-group">
+              <label>Company/Organization</label>
+              <input type="text" id="profileCompanyInput">
+            </div>
+            <button type="submit" class="save-btn">Save Changes</button>
+          </form>
+        </div>
+
+        <!-- SETTINGS SECTION -->
+        <div id="settingsSection" class="content-section">
+          <h2 class="section-title">Account Settings</h2>
+          
+          <div class="settings-card">
+            <h3 style="margin-bottom: 20px;">Notifications</h3>
+            <div class="toggle-switch">
+              <span>Email notifications</span>
+              <label class="switch">
+                <input type="checkbox" id="emailNotifications" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="toggle-switch">
+              <span>SMS notifications</span>
+              <label class="switch">
+                <input type="checkbox" id="smsNotifications">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3 style="margin-bottom: 20px;">Security</h3>
+            <button class="save-btn" onclick="changePassword()" style="margin-right: 15px;">Change Password</button>
+          </div>
+        </div>
+
+        <!-- SUPPORT SECTION -->
+        <div id="supportSection" class="content-section">
+          <h2 class="section-title">Support & Help</h2>
+          
+          <div class="settings-card">
+            <h3>Contact Support</h3>
+            <p style="color: #b0b0c8; margin: 20px 0;">Need help? Our support team is available 24/7.</p>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+              <a href="contact.html" class="save-btn" style="text-decoration: none;">Contact Form</a>
+              <a href="https://wa.me/923106359235" class="save-btn" style="background: #2b2b3a;">WhatsApp Support</a>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <h3>FAQs</h3>
+            <div style="margin-top: 20px;">
+              <details style="margin-bottom: 15px;">
+                <summary style="color: #b2a5ff; cursor: pointer;">How do I start a new project?</summary>
+                <p style="color: #b0b0c8; margin-top: 10px;">Contact us through our <a href="contact.html" style="color: #b2a5ff;">Contact page</a> and tell us your requirements.</p>
+              </details>
+              <details style="margin-bottom: 15px;">
+                <summary style="color: #b2a5ff; cursor: pointer;">What payment methods do you accept?</summary>
+                <p style="color: #b0b0c8; margin-top: 10px;">We accept JazzCash, EasyPaisa, Bank Transfer, PayPal, and Wise.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBZIowYPwtGQgCIAVqnIm1-hvH3Vf4wYs0",
+      authDomain: "hidigitalgroup.firebaseapp.com",
+      projectId: "hidigitalgroup",
+      storageBucket: "hidigitalgroup.firebasestorage.app",
+      messagingSenderId: "985354465508",
+      appId: "1:985354465508:web:abb1068a42e48512327cf1"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    let currentUser = null;
+    let userData = null;
+
+    // Auth State
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        currentUser = user;
+        try {
+          await loadUserData();
+        } catch (error) {
+          console.error('Error in auth state:', error);
+          showMessage('Error loading user data', 'error');
+        }
+        hideLoading();
+        loadDashboardData();
+      } else {
+        window.location.href = 'login.html';
+      }
+    });
+
+    // Load User Data
+    async function loadUserData() {
+      try {
+        const doc = await db.collection('users').doc(currentUser.uid).get();
+        if (doc.exists) {
+          userData = doc.data();
+        } else {
+          // Create basic profile if doesn't exist
+          userData = {
+            name: currentUser.displayName || 'User',
+            email: currentUser.email,
+            phone: '',
+            company: '',
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+          };
+          await db.collection('users').doc(currentUser.uid).set(userData);
+        }
+        
+        // Update UI with user data
+        const displayName = userData.name || 'User';
+        const initial = displayName.charAt(0).toUpperCase();
+        
+        // Update all UI elements
+        document.getElementById('profileName').innerText = displayName;
+        document.getElementById('profileEmail').innerText = userData.email;
+        document.getElementById('welcomeName').innerText = displayName.split(' ')[0];
+        
+        // Update avatar initials
+        document.getElementById('avatarInitial').innerText = initial;
+        document.getElementById('profileAvatarInitial').innerText = initial;
+        
+        // Update form fields
+        document.getElementById('profileNameInput').value = userData.name || '';
+        document.getElementById('profileEmailInput').value = userData.email || '';
+        document.getElementById('profilePhoneInput').value = userData.phone || '';
+        document.getElementById('profileCompanyInput').value = userData.company || '';
+        
+        // Load avatar if exists
+        if (userData.avatar) {
+          document.getElementById('avatarImage').src = userData.avatar;
+          document.getElementById('avatarImage').style.display = 'block';
+          document.getElementById('avatarInitial').style.display = 'none';
+          document.getElementById('profileAvatarImage').src = userData.avatar;
+          document.getElementById('profileAvatarImage').style.display = 'block';
+          document.getElementById('profileAvatarInitial').style.display = 'none';
+        }
+        
+      } catch (error) {
+        console.error('Error loading user data:', error);
+        showMessage('Error loading profile data: ' + error.message, 'error');
+      }
+    }
+
+    // Load Dashboard Data
+    function loadDashboardData() {
+      const projects = [
+        { id: 1, name: 'Logo Design', status: 'completed', date: '2026-01-15', amount: '₨ 5,000' },
+        { id: 2, name: 'Website Development', status: 'progress', date: '2026-02-01', amount: '₨ 45,000' },
+        { id: 3, name: 'SEO Campaign', status: 'progress', date: '2026-02-10', amount: '₨ 15,000' },
+      ];
+
+      // Update stats
+      document.getElementById('totalProjects').innerText = projects.length;
+      document.getElementById('activeProjects').innerText = projects.filter(p => p.status === 'progress').length;
+      document.getElementById('completedProjects').innerText = projects.filter(p => p.status === 'completed').length;
+      document.getElementById('pendingProjects').innerText = projects.filter(p => p.status === 'pending').length;
+
+      // Load projects
+      const recentHtml = projects.slice(0, 2).map(project => createProjectCard(project)).join('');
+      document.getElementById('recentProjects').innerHTML = recentHtml;
+      document.getElementById('allProjects').innerHTML = projects.map(project => createProjectCard(project)).join('');
+
+      // Load orders
+      const ordersHtml = projects.map(order => `
+        <tr>
+          <td>#${order.id}</td>
+          <td>${order.name}</td>
+          <td>${order.date}</td>
+          <td><span class="status-badge status-${order.status}">${order.status}</span></td>
+          <td>${order.amount}</td>
+        </tr>
+      `).join('');
+      document.getElementById('ordersTableBody').innerHTML = ordersHtml;
+    }
+
+    function createProjectCard(project) {
+      return `
+        <div class="project-card">
+          <div class="project-header">
+            <span class="project-title">${project.name}</span>
+            <span class="status-badge status-${project.status}">${project.status}</span>
+          </div>
+          <div class="project-meta">
+            <span><i class="far fa-calendar"></i> ${project.date}</span>
+            <span><i class="fas fa-tag"></i> ${project.amount}</span>
+          </div>
+        </div>
+      `;
+    }
+
+    // UI Functions
+    function hideLoading() {
+      document.getElementById('loadingState').style.display = 'none';
+    }
+
+    function showMessage(text, type) {
+      const msgBox = document.getElementById('messageBox');
+      msgBox.style.display = 'block';
+      msgBox.className = `message ${type}`;
+      msgBox.innerHTML = text;
+      setTimeout(() => {
+        msgBox.style.display = 'none';
+      }, 3000);
+    }
+
+    function switchSection(section) {
+      // Remove active class from all nav items
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Add active class to clicked item
+      event.target.closest('.nav-item').classList.add('active');
+      
+      // Hide all sections
+      document.querySelectorAll('.content-section').forEach(s => {
+        s.classList.remove('active');
+      });
+      
+      // Show selected section
+      document.getElementById(section + 'Section').classList.add('active');
+    }
+
+    function goToHome() {
+      window.location.href = 'index.html';
+    }
+
+    function toggleAvatarDropdown() {
+      document.getElementById('avatarDropdown').classList.toggle('show');
+    }
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('avatarDropdown');
+      const avatar = document.getElementById('userAvatar');
+      
+      if (avatar && !avatar.contains(event.target) && dropdown && dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    // Avatar Upload
+    async function uploadAvatar(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      // Check file size (max 2MB)
+      if (file.size > 2 * 1024 * 1024) {
+        showMessage('File size must be less than 2MB', 'error');
+        return;
+      }
+
+      // Check file type
+      if (!file.type.startsWith('image/')) {
+        showMessage('Please upload an image file', 'error');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = async function(e) {
+        const imageUrl = e.target.result;
+        
+        try {
+          // Update UI
+          document.getElementById('avatarImage').src = imageUrl;
+          document.getElementById('avatarImage').style.display = 'block';
+          document.getElementById('avatarInitial').style.display = 'none';
+          document.getElementById('profileAvatarImage').src = imageUrl;
+          document.getElementById('profileAvatarImage').style.display = 'block';
+          document.getElementById('profileAvatarInitial').style.display = 'none';
+          
+          // Save to Firestore
+          await db.collection('users').doc(currentUser.uid).update({
+            avatar: imageUrl
+          });
+          
+          showMessage('Profile picture updated!', 'success');
+        } catch (error) {
+          console.error('Avatar upload error:', error);
+          showMessage('Error uploading avatar: ' + error.message, 'error');
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Update Profile - FIXED VERSION
+    async function updateProfile(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('profileNameInput').value.trim();
+      const phone = document.getElementById('profilePhoneInput').value.trim();
+      const company = document.getElementById('profileCompanyInput').value.trim();
+      
+      if (!name) {
+        showMessage('Name cannot be empty', 'error');
+        return;
+      }
+      
+      try {
+        // Update Firestore
+        await db.collection('users').doc(currentUser.uid).update({
+          name: name,
+          phone: phone || '',
+          company: company || '',
+          updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        
+        // Update UI
+        document.getElementById('profileName').innerText = name;
+        document.getElementById('welcomeName').innerText = name.split(' ')[0];
+        
+        // Update avatar initial
+        const initial = name.charAt(0).toUpperCase();
+        document.getElementById('avatarInitial').innerText = initial;
+        document.getElementById('profileAvatarInitial').innerText = initial;
+        
+        showMessage('Profile updated successfully!', 'success');
+      } catch (error) {
+        console.error('Update error:', error);
+        showMessage('Error updating profile: ' + error.message, 'error');
+      }
+    }
+
+    // Logout
+    async function logout() {
+      try {
+        await auth.signOut();
+        window.location.href = 'login.html';
+      } catch (error) {
+        console.error('Logout error:', error);
+        showMessage('Error logging out', 'error');
+      }
+    }
+
+    // Change Password
+    function changePassword() {
+      if (!currentUser || !currentUser.email) {
+        showMessage('User email not found', 'error');
+        return;
+      }
+      
+      auth.sendPasswordResetEmail(currentUser.email)
+        .then(() => {
+          showMessage('Password reset email sent! Check your inbox.', 'success');
+        })
+        .catch(error => {
+          console.error('Password reset error:', error);
+          showMessage('Error: ' + error.message, 'error');
+        });
+    }
+
+    // Settings
+    document.querySelectorAll('.switch input').forEach(toggle => {
+      toggle.addEventListener('change', function() {
+        localStorage.setItem(this.id, this.checked);
+        showMessage('Settings saved!', 'success');
+      });
+    });
+
+    // Load saved settings
+    document.querySelectorAll('.switch input').forEach(toggle => {
+      const saved = localStorage.getItem(toggle.id);
+      if (saved !== null) {
+        toggle.checked = saved === 'true';
+      }
+    });
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hanan Irfan Digital Group",
+  "image": "https://hidigitalgroup.vercel.app/og-image.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Abu Dhabi Road",
+    "addressLocality": "Rahim Yar Khan",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92 310 6359235",
+  "openingHours": "Mo-Sa 09:00-23:00",
+  "sameAs": [
+    "https://facebook.com/HananIrfan001",
+    "https://instagram.com/tearswithhanan/",
+    "https://www.youtube.com/@ancientmystery-0"
+  ]
+}
+</script>
+</body>
+</html>

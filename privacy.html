@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Hanan Irfan Digital Group</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0b0b12;
+      color: #f0f0f7;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+    
+    /* Header */
+    .site-header {
+      background: #0c0c15;
+      border-bottom: 1px solid #2a2a3a;
+      padding: 25px 0;
+      margin-bottom: 40px;
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(145deg, #b2a5ff, #ff9ec7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo span {
+      font-size: 1rem;
+      color: #aaa;
+      margin-left: 12px;
+      -webkit-text-fill-color: #aaa;
+    }
+    .back-home {
+      color: #b2a5ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-home i {
+      margin-right: 8px;
+    }
+
+    /* Page title */
+    .page-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 30px 0 20px;
+      background: linear-gradient(145deg, #ffffff, #c0b7ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .last-updated {
+      color: #b0b0c8;
+      font-size: 1rem;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #2a2a3a;
+    }
+
+    /* Policy content */
+    .policy-content {
+      background: #15151f;
+      border-radius: 40px;
+      padding: 50px;
+      margin: 30px 0 50px;
+      border: 1px solid #2b2b3a;
+    }
+    .policy-section {
+      margin-bottom: 40px;
+    }
+    .policy-section h2 {
+      font-size: 1.8rem;
+      color: #b2a5ff;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .policy-section h2 i {
+      color: #ff9ec7;
+      font-size: 1.6rem;
+    }
+    .policy-section h3 {
+      font-size: 1.3rem;
+      color: #e0e0f0;
+      margin: 25px 0 15px;
+    }
+    .policy-section p {
+      color: #b0b0c8;
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+    }
+    .policy-section ul, .policy-section ol {
+      margin: 15px 0 20px 25px;
+      color: #b0b0c8;
+    }
+    .policy-section li {
+      margin-bottom: 10px;
+    }
+    .policy-section a {
+      color: #b2a5ff;
+      text-decoration: none;
+    }
+    .policy-section a:hover {
+      text-decoration: underline;
+    }
+    .highlight-box {
+      background: #1e1e2a;
+      border-left: 4px solid #6c5dd3;
+      padding: 25px;
+      border-radius: 20px;
+      margin: 25px 0;
+    }
+    .highlight-box p {
+      margin-bottom: 0;
+    }
+
+    /* Table of contents */
+    .toc {
+      background: #1a1a27;
+      border-radius: 30px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+    .toc h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #b2a5ff;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .toc-item {
+      color: #b0b0c8;
+      text-decoration: none;
+      padding: 8px 0;
+      transition: 0.3s;
+    }
+    .toc-item:hover {
+      color: #b2a5ff;
+      padding-left: 5px;
+    }
+
+    /* Contact cards */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .contact-card {
+      background: #1a1a27;
+      border-radius: 30px;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid #2b2b3a;
+    }
+    .contact-card i {
+      font-size: 2.5rem;
+      color: #b2a5ff;
+      margin-bottom: 15px;
+    }
+    .contact-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .contact-card p {
+      color: #b0b0c8;
+      font-size: 0.95rem;
+    }
+    .contact-card a {
+      color: #b2a5ff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid #2a2a38;
+      padding: 40px 0;
+      margin-top: 60px;
+      text-align: center;
+      color: #888;
+    }
+    .footer-links {
+      margin-top: 15px;
+    }
+    .footer-links a {
+      color: #888;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .footer-links a:hover {
+      color: #b2a5ff;
+    }
+
+    @media (max-width: 900px) {
+      .toc-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .policy-content {
+        padding: 30px;
+      }
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+    <!-- OR for PNG file -->
+    <link rel="icon" type="image/png" href="favicon.ico.png">
+ <!-- CANONICAL TAG - Add this -->
+  <link rel="canonical" href="https://hidigitalgroup.vercel.app/privacy.html">
+  
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Hanan Irfan Digital <span>solve & deliver</span></div>
+      <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Privacy Policy Content -->
+  <main class="container">
+    <h1 class="page-title">🔒 Privacy Policy</h1>
+    <div class="last-updated">
+      <i class="fas fa-calendar-alt" style="color: #b2a5ff; margin-right: 8px;"></i> Last Updated: February 15, 2026
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+      <h3><i class="fas fa-list-ul"></i> Quick Navigation</h3>
+      <div class="toc-grid">
+        <a href="#introduction" class="toc-item">1. Introduction</a>
+        <a href="#information-collection" class="toc-item">2. Information We Collect</a>
+        <a href="#usage" class="toc-item">3. How We Use Your Information</a>
+        <a href="#sharing" class="toc-item">4. Information Sharing</a>
+        <a href="#cookies" class="toc-item">5. Cookies & Tracking</a>
+        <a href="#data-security" class="toc-item">6. Data Security</a>
+        <a href="#your-rights" class="toc-item">7. Your Rights</a>
+        <a href="#children" class="toc-item">8. Children's Privacy</a>
+        <a href="#international" class="toc-item">9. International Transfers</a>
+        <a href="#retention" class="toc-item">10. Data Retention</a>
+        <a href="#changes" class="toc-item">11. Changes to Policy</a>
+        <a href="#contact" class="toc-item">12. Contact Us</a>
+      </div>
+    </div>
+
+    <!-- Policy Content -->
+    <div class="policy-content">
+      
+      <!-- Section 1: Introduction -->
+      <section id="introduction" class="policy-section">
+        <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+        <p>Welcome to Hanan Irfan Digital Group ("we," "our," "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+        <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site or use our services. We reserve the right to make changes to this policy at any time.</p>
+        <div class="highlight-box">
+          <p><i class="fas fa-shield-alt" style="color: #6c5dd3; margin-right: 10px;"></i> <strong>Our Promise:</strong> We will never sell your personal information to third parties. Your trust is our priority.</p>
+        </div>
+      </section>
+
+      <!-- Section 2: Information We Collect -->
+      <section id="information-collection" class="policy-section">
+        <h2><i class="fas fa-database"></i> 2. Information We Collect</h2>
+        <h3>2.1 Personal Information You Provide</h3>
+        <p>We collect personal information that you voluntarily provide when you:</p>
+        <ul>
+          <li><strong>Contact us</strong> via forms, email, or WhatsApp – name, email, phone number, project details</li>
+          <li><strong>Request a quote</strong> – name, email, phone, service interest, budget</li>
+          <li><strong>Create an account</strong> (future feature) – username, email, password</li>
+          <li><strong>Subscribe to newsletter</strong> – email address</li>
+          <li><strong>Make payments</strong> – billing information (processed securely via third-party payment processors; we do not store credit card details)</li>
+        </ul>
+
+        <h3>2.2 Information Automatically Collected</h3>
+        <p>When you visit our website, we automatically collect certain information via cookies and similar technologies:</p>
+        <ul>
+          <li>IP address, browser type, device information</li>
+          <li>Pages visited, time spent, referral source</li>
+          <li>Clickstream data (how you navigate our site)</li>
+        </ul>
+
+        <h3>2.3 Information from Third Parties</h3>
+        <p>We may receive information about you from third-party services you connect to us (e.g., if you contact us via Facebook or WhatsApp). We use this information to respond to your inquiries.</p>
+      </section>
+
+      <!-- Section 3: How We Use Your Information -->
+      <section id="usage" class="policy-section">
+        <h2><i class="fas fa-cogs"></i> 3. How We Use Your Information</h2>
+        <p>We use your information for the following purposes:</p>
+        <ul>
+          <li><strong>To provide and deliver services</strong> – complete your projects, assignments, designs</li>
+          <li><strong>To communicate with you</strong> – respond to inquiries, send quotes, project updates</li>
+          <li><strong>To improve our website</strong> – analyze usage, fix issues, enhance user experience</li>
+          <li><strong>To send marketing communications</strong> (with your consent) – newsletters, promotions, new services</li>
+          <li><strong>To comply with legal obligations</strong> – maintain records, prevent fraud</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Information Sharing -->
+      <section id="sharing" class="policy-section">
+        <h2><i class="fas fa-share-alt"></i> 4. Information Sharing</h2>
+        <p>We do not sell, trade, or rent your personal information. We may share information in these limited circumstances:</p>
+        <ul>
+          <li><strong>Service providers:</strong> With trusted third-party vendors who assist in operating our website, processing payments, or delivering services (e.g., hosting providers, payment gateways like PayPal/JazzCash). These parties are contractually obligated to protect your data.</li>
+          <li><strong>Legal requirements:</strong> If required by law, court order, or to protect our rights, safety, or property.</li>
+          <li><strong>Business transfers:</strong> In case of merger, acquisition, or sale of assets, your information may be transferred.</li>
+        </ul>
+      </section>
+
+      <!-- Section 5: Cookies & Tracking -->
+      <section id="cookies" class="policy-section">
+        <h2><i class="fas fa-cookie-bite"></i> 5. Cookies & Tracking Technologies</h2>
+        <p>We use cookies and similar technologies to enhance your experience. Cookies are small text files stored on your device.</p>
+        <h3>Types of cookies we use:</h3>
+        <ul>
+          <li><strong>Essential cookies:</strong> Necessary for website functionality (e.g., session management)</li>
+          <li><strong>Analytics cookies:</strong> Help us understand how visitors use our site (Google Analytics)</li>
+          <li><strong>Preference cookies:</strong> Remember your settings and choices</li>
+        </ul>
+        <p>You can control cookies through your browser settings. Disabling cookies may affect site functionality.</p>
+      </section>
+
+      <!-- Section 6: Data Security -->
+      <section id="data-security" class="policy-section">
+        <h2><i class="fas fa-lock"></i> 6. Data Security</h2>
+        <p>We implement appropriate technical and organizational measures to protect your information:</p>
+        <ul>
+          <li>SSL/TLS encryption for data transmission</li>
+          <li>Secure servers and databases</li>
+          <li>Regular security audits</li>
+          <li>Limited employee access to personal data</li>
+        </ul>
+        <p>While we strive to protect your data, no method of transmission over the Internet is 100% secure.</p>
+      </section>
+
+      <!-- Section 7: Your Rights -->
+      <section id="your-rights" class="policy-section">
+        <h2><i class="fas fa-user-check"></i> 7. Your Privacy Rights</h2>
+        <p>Depending on your location, you may have the following rights:</p>
+        <ul>
+          <li><strong>Access:</strong> Request a copy of your personal data</li>
+          <li><strong>Correction:</strong> Update or correct inaccurate information</li>
+          <li><strong>Deletion:</strong> Request deletion of your data (subject to legal obligations)</li>
+          <li><strong>Opt-out:</strong> Unsubscribe from marketing communications</li>
+          <li><strong>Data portability:</strong> Receive your data in a structured format</li>
+        </ul>
+        <p>To exercise these rights, contact us at privacy@hananirfan.digital. We will respond within 30 days.</p>
+      </section>
+
+      <!-- Section 8: Children's Privacy -->
+      <section id="children" class="policy-section">
+        <h2><i class="fas fa-child"></i> 8. Children's Privacy</h2>
+        <p>Our services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal data, please contact us.</p>
+      </section>
+
+      <!-- Section 9: International Transfers -->
+      <section id="international" class="policy-section">
+        <h2><i class="fas fa-globe"></i> 9. International Data Transfers</h2>
+        <p>Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place (Standard Contractual Clauses) when transferring data internationally.</p>
+      </section>
+
+      <!-- Section 10: Data Retention -->
+      <section id="retention" class="policy-section">
+        <h2><i class="fas fa-clock"></i> 10. Data Retention</h2>
+        <p>We retain personal information for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required by law. Project-related data may be kept for 3 years for reference and quality improvement.</p>
+      </section>
+
+      <!-- Section 11: Changes to Policy -->
+      <section id="changes" class="policy-section">
+        <h2><i class="fas fa-edit"></i> 11. Changes to This Privacy Policy</h2>
+        <p>We may update this policy periodically. The "Last Updated" date at the top indicates when changes were made. We encourage you to review this page regularly.</p>
+      </section>
+
+      <!-- Section 12: Contact Us -->
+      <section id="contact" class="policy-section">
+        <h2><i class="fas fa-headset"></i> 12. Contact Us</h2>
+        <p>If you have questions or concerns about this Privacy Policy or our data practices:</p>
+        
+        <div class="contact-cards">
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h4>Email</h4>
+            <p><a href="mailto:hananirfan91@gmail.com">hananirfan91@gmail.com</a></p>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>Phone</h4>
+            <p>+92 310 6359235</p>
+          </div>
+          <div class="contact-card">
+            <i class="fab fa-whatsapp"></i>
+            <h4>WhatsApp</h4>
+            <p>+92 310 6359235</p>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Address</h4>
+            <p>Rahim Yar Khan, Punjab, Pakistan</p>
+          </div>
+        </div>
+
+        <p>For data protection inquiries, please contact our Data Protection Officer: <strong>Hanan Irfan</strong> at <a href="mailto:hananirfan91@gmail.com">hananirfan91@gmail.com</a></p>
+      </section>
+    </div>
+
+    <!-- Additional Information -->
+    <div class="highlight-box" style="margin: 40px 0;">
+      <p><i class="fas fa-gavel"></i> <strong>Legal Compliance:</strong> We comply with applicable data protection laws including the Pakistan Data Protection Bill, GDPR (for EU users), and CCPA (for California residents). Your privacy rights are respected regardless of your location.</p>
+    </div>
+
+    <!-- Consent Banner (for demonstration) -->
+    <div style="background: #1e1e2a; border-radius: 30px; padding: 30px; margin: 40px 0; text-align: center;">
+      <p style="color: #b0b0c8;"><i class="fas fa-check-circle" style="color: #6c5dd3;"></i> By using our website, you consent to our Privacy Policy and agree to its terms.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Hanan Irfan Digital Group – We solve & deliver. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="aboutuspge.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="howitworks.html">How It Works</a>
+        <a href="projects.html">Projects</a>
+        
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy.html" style="color: #b2a5ff;">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Smooth scroll for anchor links -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({behavior: 'smooth'});
+        }
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Hanan Irfan Digital Group",
+  "image": "https://hidigitalgroup.vercel.app/og-image.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Abu Dhabi Road",
+    "addressLocality": "Rahim Yar Khan",
+    "addressRegion": "Punjab",
+    "addressCountry": "PK"
+  },
+  "telephone": "+92 310 6359235",
+  "openingHours": "Mo-Sa 09:00-23:00",
+  "sameAs": [
+    "https://facebook.com/HananIrfan001",
+    "https://instagram.com/tearswithhanan/",
+    "https://www.youtube.com/@ancientmystery-0"
+  ]
+}
+</script>
+</body>
+</html>
