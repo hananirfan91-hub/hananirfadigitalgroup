@@ -33,7 +33,7 @@
   <link rel="icon" type="image/png" href="favicon.ico.png">
   <link rel="apple-touch-icon" href="favicon.ico.png">
 
-  <!-- CSS – fully optimized for mobile with improved dropdown -->
+  <!-- CSS – fully optimized for mobile with premium dropdown -->
   <style>
     /* ---------- RESET & GLOBAL ---------- */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -110,50 +110,53 @@
       color: #ff9ec7;
     }
 
-    /* ---------- IMPROVED MOBILE DROPDOWN (sleek card) ---------- */
+    /* ---------- SLEEK MOBILE DROPDOWN (card style) ---------- */
     .mobile-nav {
       display: none;
       flex-direction: column;
-      background: #1c1c28; /* slightly lighter for contrast */
-      padding: 16px 12px;
-      border-radius: 28px;
-      margin-top: 18px;
-      border: 1px solid #3a3a54;
-      box-shadow: 0 20px 30px -10px black;
-      backdrop-filter: blur(10px);
+      background: #1a1a28;
+      padding: 12px 10px;
+      border-radius: 30px;
+      margin-top: 16px;
+      border: 1px solid #3f3f5a;
+      box-shadow: 0 25px 35px -12px #000000cc;
+      backdrop-filter: blur(12px);
     }
     .mobile-nav.show {
       display: flex;
     }
     .mobile-nav a {
-      color: #e0e0f0;
+      color: #e8e8ff;
       text-decoration: none;
-      padding: 16px 20px;
+      padding: 16px 22px;
       font-size: 1.1rem;
       font-weight: 500;
-      border-radius: 20px;
-      transition: 0.2s;
+      border-radius: 24px;
+      transition: 0.25s;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
+      margin: 2px 0;
     }
     .mobile-nav a:not(:last-child) {
-      border-bottom: 1px solid #2e2e42;
+      border-bottom: 1px solid #2e2e48;
     }
     .mobile-nav a i {
-      width: 24px;
+      width: 28px;
       color: #b2a5ff;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      text-align: center;
     }
     .mobile-nav a:hover {
-      background: #2a2a3c;
+      background: #2a2a40;
       color: white;
-      padding-left: 28px;
+      padding-left: 30px;
     }
     .mobile-nav a.active {
-      background: #2a2a40;
-      color: #b2a5ff;
-      border-left: 4px solid #b2a5ff;
+      background: #2a2a48;
+      color: #c9bfff;
+      border-left: 5px solid #b2a5ff;
+      font-weight: 600;
     }
 
     /* ---------- BUTTONS & UTILS ---------- */
@@ -425,6 +428,8 @@
 
     /* ---------- RESPONSIVE FOOTER ---------- */
     @media (max-width: 1000px) {
+      .desktop-nav { display: none; }
+      .hamburger { display: block; }
       .footer-main { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 700px) {
@@ -436,7 +441,7 @@
       .btn { width: 100%; }
       .service-card { padding: 25px 15px; }
       .pricing-note, .cta-banner { padding: 40px 20px; }
-      .mobile-nav a { padding: 14px 16px; } /* smaller touch targets on tiny screens */
+      .mobile-nav a { padding: 14px 18px; }
     }
   </style>
 </head>
@@ -456,7 +461,7 @@
         </nav>
         <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
       </div>
-      <!-- IMPROVED MOBILE DROPDOWN with icons and better styling -->
+      <!-- SLEEK DROPDOWN MOBILE NAVIGATION with icons -->
       <div class="mobile-nav" id="mobileNav">
         <a href="index.html"><i class="fas fa-home"></i> Home</a>
         <a href="aboutuspge.html"><i class="fas fa-users"></i> About</a>
@@ -722,7 +727,7 @@
     }
   </script>
 
-  <!-- Schema.org enhanced -->
+  <!-- Schema.org enhanced (Organization + Service list) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
