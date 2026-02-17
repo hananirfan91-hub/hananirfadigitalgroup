@@ -1,0 +1,43 @@
+# Hanan Irfan Digital Group
+
+> One-stop digital agency: graphic design, web development, SEO, video editing, content writing, assignments. We solve any digital problem and deliver quality work — fast & 24/7.
+
+We provide comprehensive digital solutions for businesses and individuals. Our team of experts handles everything from creative design to technical development and content creation.
+
+## Services
+
+- [Graphic Design](https://hidigitalgroup.vercel.app/service.html): Logo design, branding, posters, social media creatives, packaging, and thumbnails
+- [Web Development](https://hidigitalgroup.vercel.app/service.html): HTML/CSS/JS, React, Node, Python, PHP, WordPress, and e-commerce solutions
+- [SEO](https://hidigitalgroup.vercel.app/service.html): On-page optimization, technical SEO, local SEO, and backlink strategies
+- [Video Editing](https://hidigitalgroup.vercel.app/service.html): Cutting, effects, color grading, transitions, promotional videos, and reels
+- [Content Writing](https://hidigitalgroup.vercel.app/service.html): SEO articles, blog posts, web copy, and product descriptions
+- [Assignment / Homework](https://hidigitalgroup.vercel.app/service.html): Academic support, projects, reports for any subject
+- [Thumbnail Creator](https://hidigitalgroup.vercel.app/service.html): Click-worthy YouTube thumbnails with high CTR designs
+- [Presentation Maker](https://hidigitalgroup.vercel.app/service.html): Stunning PowerPoint, Google Slides, and Canva presentations
+
+## Why Choose Us
+
+- [Fast Turnaround](https://hidigitalgroup.vercel.app/#abc): Most tasks delivered within 24-48 hours
+- [Expert Team](https://hidigitalgroup.vercel.app/#abc): Designers, developers, SEO specialists, and content writers in-house
+- [24/7 Support](https://hidigitalgroup.vercel.app/#abc): Always available via WhatsApp, email, or call
+- [100% Satisfaction](https://hidigitalgroup.vercel.app/#abc): Unlimited revisions until you're happy
+
+## How We Work
+
+- [Our Process](https://hidigitalgroup.vercel.app/howitworks.html): Simple 4-step workflow from problem to delivery
+- [Projects](https://hidigitalgroup.vercel.app/projects.html): See our completed work and case studies
+
+## Contact & Company
+
+- [About Us](https://hidigitalgroup.vercel.app/aboutuspge.html): Learn more about our team and mission
+- [Contact](https://hidigitalgroup.vercel.app/contact.html): Get in touch for free consultation
+- [Privacy Policy](https://hidigitalgroup.vercel.app/privacy.html): How we handle your data
+- [Terms of Service](https://hidigitalgroup.vercel.app/terms.html): Our terms and conditions
+- [FAQs](https://hidigitalgroup.vercel.app/faq.html): Frequently asked questions
+
+## Optional
+
+- [Facebook](https://facebook.com/HananIrfan001): Follow us on Facebook
+- [Instagram](https://instagram.com/tearswithhanan/): Follow us on Instagram
+- [YouTube](https://www.youtube.com/@ancientmystery-0): Subscribe to our YouTube channel
+- [WhatsApp](https://api.whatsapp.com/send/?phone=923106359235): Contact us directly on WhatsApp
