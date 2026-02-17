@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- PRIMARY SEO META TAGS (consolidated, unique) -->
-  <title>Hanan Irfan Digital Group – We Solve & Deliver | Graphic Design, Web Dev, SEO</title>
+  <title>Hanan Irfan Digital Group – We Solve & Deliver | Graphic Design, Web Dev</title>
   <meta name="description" content="One-stop digital agency: graphic design, web development, SEO, video editing, content writing, assignments. We solve any digital problem and deliver quality work — fast & 24/7.">
   <meta name="keywords" content="Digital agency, graphic design, web development, SEO, video editing, content writing, assignments, thumbnail creator, presentation maker, Rahim Yar Khan">
   <meta name="author" content="Hanan Irfan Digital Group">
@@ -20,6 +20,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <!-- AOS (animate on scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Hreflang tags for language targeting -->
+  <link rel="alternate" href="https://hidigitalgroup.vercel.app/index.html" hreflang="en" />
+  <link rel="alternate" href="https://hidigitalgroup.vercel.app/index.html" hreflang="x-default" />
 
   <!-- ===== OPEN GRAPH / SOCIAL ===== (consolidated & unique) -->
   <meta property="og:site_name" content="Hanan Irfan Digital Group">
@@ -50,8 +53,40 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-  
-  <style>
+    <!-- Google Analytics 4 -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D8TVS1C0HQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D8TVS1C0HQ');
+</script>
+
+  The base Pixel code contains your Pixel's ID in two places and looks like this:
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '494192510119583'); // your Pixel ID
+
+  fbq('track', 'PageView');
+</script>
+<noscript>
+ <img height="1" width="1" style="display:none" 
+     src="https://www.facebook.com/tr?id=494192510119583&ev=PageView&noscript=1"/>
+
+</noscript>
+<!-- End Facebook Pixel Code -->
+
     /* ---------- RESET / GLOBAL ---------- */
     * {
       margin: 0;
@@ -587,7 +622,7 @@
         <ul class="contact-info">
           <li><i class="fas fa-map-marker-alt"></i> Rahim Yar Khan, Pakistan</li>
           <li><i class="fas fa-phone-alt"></i> +92 310 6359 235</li>
-          <li><i class="fas fa-envelope"></i> hananirfan91@gmail.com</li>
+         <li><i class="fas fa-envelope"></i> <span class="protected-email" data-user="hananirfan" data-domain="gmail.com"></span></li>
           <li><i class="fab fa-whatsapp"></i> +92 310 6359 235</li>
         </ul>
       </div>
@@ -935,6 +970,12 @@
     }
   ]
 }
+    // Protected email addresses
+document.querySelectorAll('.protected-email').forEach(el => {
+  const user = el.getAttribute('data-user');
+  const domain = el.getAttribute('data-domain');
+  el.innerHTML = `<a href="mailto:${user}@${domain}">${user}@${domain}</a>`;
+});
 </script>
 </body>
 </html>
